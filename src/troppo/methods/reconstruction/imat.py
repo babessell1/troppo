@@ -119,8 +119,6 @@ class IMAT(ContextSpecificModelReconstructionAlgorithm):
 		A_names = list(chain(*list(map(prefix_maker,[('V',n),('Hpos',nh),('Hneg',nh),('L',nl)]))))
 
 		lsystem = GenericLinearSystem(S=A, var_types=A_vt, lb=A_lb, ub=A_ub, b_lb=b_lb, b_ub=b_ub, var_names=A_names)
-        lsystem.model.problem.Params.Seed = 12345
-        lsystem.model.problem.Params.TimeLimit = gurobipy.GRB.INFINITY
 		lso = LinearSystemOptimizer(lsystem)
 
 		A_f = np.zeros((A.shape[1]))
