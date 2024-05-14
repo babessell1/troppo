@@ -1,4 +1,13 @@
+import os
 from setuptools import setup, find_packages
+
+# Get the directory where setup.py is located
+current_directory = os.path.abspath(os.path.dirname(__file__))
+
+# Use that directory to construct the absolute path to README.rst
+with open(os.path.join(current_directory, 'README.rst'), 'r') as f:
+    long_description = f.read()
+
 
 setup(
     name = 'troppo',
@@ -13,7 +22,7 @@ setup(
     license = 'GNU General Public License v3.0',
     keywords = 'pathway analysis metabolic model',
     url = 'https://github.com/BioSystemsUM/troppo',
-    long_description = open('README.rst').read(),
+    long_description = long_description,
     classifiers = [
         'Development Status :: 4 - Beta',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
